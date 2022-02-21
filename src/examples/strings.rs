@@ -75,7 +75,7 @@ pub fn string_looping() {
 pub fn collect() {
   let text = "the red fox and the lazy dog, Rahul Gupta";
   // text.split_whitespace() returns an iterator
-  // .collect converts an iterator into vector
+  // .collect converts an iterator over strings into vector
   let words: Vec<&str> = text.split_whitespace().collect();
   println!("{:?}", words);
   let mut words_list = Vec::new();
@@ -90,7 +90,14 @@ pub fn simple_split() {
 
 pub fn magic() {
   let text = "the red fox andr the lazyr dog";
-
+  // here collects characters into a string
   let stripped: String = text.chars().filter(|x| !x.is_whitespace()).collect();
   println!("{:?}", stripped);
+
+  let characters = text.chars();
+  let without_whitespace = characters.filter(|x| !x.is_whitespace());
+  for c in without_whitespace {
+    print!("{}", c);
+  }
+  println!();
 }
